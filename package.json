@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Learn Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "raphael",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.3.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "express-load": "^1.1.15",
+    "mongoose": "^4.8.1",
+    "mysql": "^2.13.0"
+  }
+}
