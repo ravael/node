@@ -3,14 +3,16 @@
 		<table border="1px">
   <tr>
     <th>Id</th>
-    <th>Produto</th>
-    <th>Autor</th> 
+    <th>Título</th>
+    <th>Preço</th>
+    <th>Descrição</th> 
   </tr>
   <% for(var i=0;i<livros.length;i++) {%>
     	<tr>
         <td><%=livros[i].id %></td>
-        <td><%=livros[i].nome %></td>
-        <td><%=livros[i].autor %></td> 
+        <td><%=livros[i].titulo %></td>
+        <td><%=livros[i].preco %></td>
+        <td><%=livros[i].descricao %></td> 
     </tr>
    <%}%>
 </table>

@@ -5,42 +5,50 @@ module.exports = function(app) {
 	var model = mongoose.model('Livro');
 	
 	app.get('/produtos', function(req,res){
-
-		//var connection = app.infra.connectionFactory();
-
-		//var mongoose = app.infra.mongoFactory();
-
 		model.find()
     	.then(function(livros) {
-    		res.render('produtos/lista',{livros: livros});
+
+    		res.format({
+    			html: function(){
+    				res.render('produtos/lista',{livros: livros});		
+    			},
+    			json: function(){
+    				res.json(livros);
+    			}
+    		})
+
+    		//res.render('produtos/lista',{livros: livros});
+
         	//res.json(fotos);
     	}, function(error) {
         	console.log(error);
         res.sendStatus(500);
-    });
+    	});
 		
-		/*connection.query('select * from livros', function(err, result){
+	});
 
-			var livros = [
-					
-					{
-					  "id": "2",
-					  "nome": "Nodejs"
-					},
-					{
-					  "id": "3",
-					  "nome": "JavaScript"
-					},{
-					  "id": "4",
-					  "nome": "Angular"
-					}
-			];
-				res.render('produtos/lista',{livros: livros});
-		});
+	app.get('/produtos/form', function(req,res){
+		res.render('produtos/cadastro',{errosValidacao:{}});
+	});
 
-		connection.end();*/
+	app.post('/produtos/salva', function(req,res){
+		var livro = req.body;
 
-		//res.render('produtos/lista');
+		var validator = req.assert('titulo', 'Titulo é obrigatório').notEmpty();
+		var erros = req.validationErrors();
+		if(erros){
+			res.render('produtos/cadastro',{errosValidacao:erros});
+			return;
+		}
+		
+		model
+		.create(livro)
+		.then(function(livros){
+			res.redirect('/produtos');
+		}, function(error){
+			console.log(error);
+		res.sendStatus(500);
+		})
 	});
 
 }

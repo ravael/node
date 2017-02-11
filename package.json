@@ -9,11 +9,14 @@
   "author": "raphael",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "bulma": "^0.3.1",
     "ejs": "^2.5.5",
     "express": "^4.14.1",
     "express-load": "^1.1.15",
+    "express-validator": "^3.1.2",
     "mongoose": "^4.8.1",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0"
   }
 }
