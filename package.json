@@ -17,11 +17,7 @@
     "express-validator": "^3.1.2",
     "mongoose": "^4.8.1",
     "mysql": "^2.13.0",
-<<<<<<< HEAD
     "nodemon": "^1.11.0",
     "socket.io": "^1.7.2"
-=======
-    "nodemon": "^1.11.0"
->>>>>>> 81cc64ed615edb25f1bec3086db4514a42b9ea20
   }
 }
