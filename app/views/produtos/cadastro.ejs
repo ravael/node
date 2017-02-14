@@ -2,13 +2,7 @@
     <body>
     	<div>
     		<% for(var i=0;i<errosValidacao.length;i++) {%>
-
-            <ul style="list-style-type:none">
-                <li><%=errosValidacao[i].msg %></li>
-            </ul>
-    	
-        	<!--span><%=errosValidacao[i].msg %></span-->
-            
+        	   <span><%=errosValidacao[i].msg %></span>
             <%}%>
     	</div>
         <form action="/produtos/salva" method="post">

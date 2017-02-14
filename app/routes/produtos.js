@@ -6,17 +6,16 @@ module.exports = function(app) {
 	app.get('/produtos', function(req,res){
 		model.find()
     	.then(function(livros) {
-
     		res.format({
-    			//se o serviço pedir uma resposta em html
+
     			html: function(){
     				res.render('produtos/lista',{livros: livros});		
     			},
-    			//se o serviço pedior uma resposta em json
     			json: function(){
     				res.json(livros);
     			}
     		})
+
     	}, function(error) {
         	console.log(error);
         res.sendStatus(500);
