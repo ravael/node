@@ -2,11 +2,15 @@ var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
 
-    nome: {
+    titulo: {
         type: String,
         required: true
     },
-    autor: {
+    preco: {
+        type: String,
+        required: false
+    },
+    descricao: {
         type: String,
         required: false
     }
